@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Asteriods</title>
-    <style></style>
-</head>
+    <style>
+      body {
+        overflow: hidden;
+      }
+      ::-webkit-scrollbar {
+        width: 0px; /* Remove scrollbar space */
+        background: transparent; /* Optional: just make scrollbar invisible */
+      }
+    </style>
+  </head>
 
-<body>
+  <body>
     <canvas id="gameCanvas" width="700" height="500"></canvas>
     <script src="game.js"></script>
-
-</body>
-
+  </body>
 </html>
