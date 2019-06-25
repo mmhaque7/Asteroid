@@ -1,13 +1,13 @@
-const FPS = 30; //frames per second
-const SHIP_SIZE = 30; // ship size in pxl
-const TURN_SPEED = 360; //turn speed in degrees per second
-const SHIP_THRUST = 5; //accelearation pixel per second
-const FRICTION = 0.2; //friction coeffcient of space(where  0 = no friction, 1 = lots of friction!)
-const ROIDS_NUM = 3;
-const ROIDS_JAG = 0.4; ///jajjedness of the asteriods (0 = none , 1 many)
-const ROIDS_SIZE = 100; //starting size roid in  pixel
-const ROIDS_SPD = 50; //starting speef of riod px/sec
-const ROIDS_VERT = 10; //avg # verticies of each asteriod
+var FPS = 30; //frames per second
+var SHIP_SIZE = 30; // ship size in pxl
+var TURN_SPEED = 360; //turn speed in degrees per second
+var SHIP_THRUST = 5; //accelearation pixel per second
+var FRICTION = 0.2; //friction coeffcient of space(where  0 = no friction, 1 = lots of friction!)
+var ROIDS_NUM = 3;
+var ROIDS_JAG = 0.4; ///jajjedness of the asteriods (0 = none , 1 many)
+var ROIDS_SIZE = 100; //starting size roid in  pixel
+var ROIDS_SPD = 50; //starting speef of riod px/sec
+var ROIDS_VERT = 10; //avg # verticies of each asteriod
 
 /** @type{HTMLCanavasElement}*/
 var can = document.getElementById("gameCanvas");
@@ -92,6 +92,10 @@ function keyUp(/** @type {keyboardEvent} */ ev) {
 
     case 40:
       ship.shipStopping = false;
+      break;
+
+    case 77:
+      SHIP_THRUST += 10;
       break;
   }
 }
