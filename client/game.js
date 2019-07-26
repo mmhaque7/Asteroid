@@ -545,3 +545,4 @@ function update() {
     //ctx.fillRect(ship.x - 1, ship.y - 1, 2, 2);
   }
 }
+///hello
