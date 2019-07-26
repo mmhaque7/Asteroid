@@ -63,7 +63,7 @@ function destroyAsteriod(index) {
   roids.splice(index, 1);
 
   //new level when no more asteriods
-  if(roids.length ==0){
+  if (roids.length == 0) {
     level++;
     newLevel();
 
@@ -81,12 +81,12 @@ function explodeShip() {
 //gameloop
 setInterval(update, 1000 / FPS);
 
-function keyDown(/** @type {keyboardEvent} */ ev) {
+function keyDown( /** @type {keyboardEvent} */ ev) {
   switch (ev.keyCode) {
     case 32: //space bar-->shoots lasers pew pew
       shootLaser();
       break;
-    
+
     case 37: //rotate ship left
       ship.rot = ((TURN_SPEED / 180) * Math.PI) / FPS;
       break;
@@ -102,7 +102,7 @@ function keyDown(/** @type {keyboardEvent} */ ev) {
   }
 }
 
-function keyUp(/** @type {keyboardEvent} */ ev) {
+function keyUp( /** @type {keyboardEvent} */ ev) {
   switch (ev.keyCode) {
     case 32: //space bar-->shoots lasers pew pew
       //shootLaser()
@@ -134,11 +134,9 @@ function newAsteroid(x, y, r) {
     x: x,
     y: y,
     r: r,
-    xv:
-      ((Math.random() * ROIDS_SPD * lvlMult) / FPS) *
+    xv: ((Math.random() * ROIDS_SPD * lvlMult) / FPS) *
       (Math.random() < 0.5 ? 1 : -1),
-    yv:
-      ((Math.random() * ROIDS_SPD * lvlMult) / FPS) *
+    yv: ((Math.random() * ROIDS_SPD * lvlMult) / FPS) *
       (Math.random() < 0.5 ? 1 : -1),
     offs: []
   };
@@ -157,7 +155,7 @@ function newGame() {
 }
 
 function newLevel() {
-  text = "LEVEL " + (level +1);
+  text = "LEVEL " + (level + 1);
   textAlpha = 1.0;
   createAsteriodBelt();
 }
@@ -181,6 +179,7 @@ function newShip() {
     }
   };
 }
+
 function shootLaser() {
   //create the laser object
   if (ship.canShoot && ship.lasers.length < LASER_MAX) {
@@ -368,11 +367,11 @@ function update() {
   }
 
   //draw the game text
-  if(textAlpha >=0){
+  if (textAlpha >= 0) {
     ctx.fillStyle = "rgba(255, 255, 255, " + textAlpha + ")";
     ctx.font = "normal " + TEXT_SIZE + "px devaju Arial";
-    ctx.fillText(text, can.width/6, can.height * 0.95);
-    textAlpha-= (1.0 /TEXT_FADE_TIME /FPS);
+    ctx.fillText(text, can.width / 6, can.height * 0.95);
+    textAlpha -= (1.0 / TEXT_FADE_TIME / FPS);
   }
 
   //detect laser hit on asteriods.
@@ -487,12 +486,14 @@ function update() {
       continue;
     }
     //handle the explosion
+
+    // handle the explosion
     if (ship.lasers[i].explodeTime > 0) {
       ship.lasers[i].explodeTime--;
 
-      //destrou the laser dur is up
+      // destroy the laser after the duration is up
       if (ship.lasers[i].explodeTime == 0) {
-        ship.laser.splice(i, 1);
+        ship.lasers.splice(i, 1);
         continue;
       }
     } else {
